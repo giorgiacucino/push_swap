@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:57 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/12 18:15:42 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/13 14:21:46 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_stack
 	int		*b;
 	int		size_a;
 	int		size_b;
+	int		*lis;
+	int		size_lis;
 }				t_stack;
 
 int		ft_atoi(const char *str);

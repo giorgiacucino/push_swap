@@ -6,11 +6,29 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:31 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/12 18:15:53 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/13 17:11:32 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	get_lis(t_stack *s, int start)
+{
+
+}
+
+void	get_best_lis(t_stack *s)
+{
+	int	i;
+
+	i = 0;
+	while (i < s->size_a)
+	{
+		get_lis(s, i);
+		printf("\n");
+		i++;
+	}
+}
 
 void	print_stack(int *arr, int size)
 {
@@ -38,6 +56,21 @@ void	print_stacks(t_stack *s)
 	print_stack(s->b, s->size_b);
 }
 
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+	char	*p;
+
+	p = s;
+	i = 0;
+	while (i < n)
+	{
+		*p = '\0';
+		p++;
+		i++;
+	}
+}
+
 t_stack	*init_stacks(char **input)
 {
 	int		i;
@@ -45,13 +78,14 @@ t_stack	*init_stacks(char **input)
 
 	i = 0;
 	ret = (t_stack *) malloc (sizeof(t_stack));
+	ft_bzero(ret, sizeof(t_stack *));
 	while (input[i] != 0)
 		i++;
 	ret->size = i;
 	ret->a = (int *) malloc (sizeof(int) * i);
 	ret->b = (int *) malloc (sizeof(int) * i);
+	ret->lis = (int *) malloc (sizeof(int) * i);
 	ret->size_a = i;
-	ret->size_b = 0;
 	i = 0;
 	while (input[i] != 0)
 	{
@@ -72,7 +106,7 @@ int	main(int argc, char **argv)
 	else
 		argv++;
 	s = init_stacks(argv);
-	print_stacks(s);
+	get_best_lis(s);
 	if (argc == 2)
 		free(argv);
 	return (0);
