@@ -28,6 +28,9 @@ typedef struct s_stack
 	int		size_b;
 	int		*lis;
 	int		size_lis;
+	int		moves;
+	int		*move_a;
+	int		*move_b;	
 }				t_stack;
 
 int		ft_atoi(const char *str);

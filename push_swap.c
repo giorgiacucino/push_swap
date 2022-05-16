@@ -12,6 +12,40 @@
 
 #include "push_swap.h"
 
+void	print_moves(int moves)
+{
+	write(1, "--- mosse fatte ---\n", 21);
+	ft_putnbr_fd(moves, 1);
+	write(1, "\n", 1);
+	write(1, "\n", 1);
+}
+
+void	print_stack(int *arr, int size)
+{
+	int	i;
+
+	i = 0;
+	write(1, "array: ", 7);
+	while (i < size)
+	{
+		ft_putnbr_fd(arr[i], 1);
+		if (i != size - 1)
+			write(1, " ", 1);
+		i++;
+	}
+	write(1, "\nsize: ", 7);
+	ft_putnbr_fd(size, 1);
+	write(1, "\n", 1);
+}
+
+void	print_stacks(t_stack *s)
+{
+	write(1, "--- stack a ---\n", 16);
+	print_stack(s->a, s->size_a);
+	write(1, "--- stack b ---\n", 16);
+	print_stack(s->b, s->size_b);
+}
+
 int	*ft_alloc_bzero(int n)
 {
     int	i;
@@ -24,6 +58,58 @@ int	*ft_alloc_bzero(int n)
     while (++i < n)
 		ret[i] = 0;
 	return (ret);
+}
+
+void	make_move(void (*move)(t_stack *), t_stack *s)  
+{  
+	move(s);
+	//print_stacks(s);
+	s->moves++;
+	//print_moves(s->moves);
+}
+
+void	init_move_array(t_stack *s)
+{
+	int	i;
+	
+	i = 0;
+	s->move_a = ft_alloc_bzero(s->size_b);
+	s->move_b = ft_alloc_bzero(s->size_b);
+	while (++i < ((s->size_b / 2) + 1))
+	{
+		s->move_b[s->size_b - i] = -i;
+		s->move_b[i] = i;
+	}
+}
+
+void	break_lis(t_stack *s)
+{
+	int	j;
+
+	j = 0;
+	while (j < s->size_lis)
+	{
+		if (s->a[0] == s->lis[j])
+		{
+			make_move(ra, s);
+			j++;
+		}
+		else
+		{
+			make_move(pb, s);
+			/*7 da modificare in seguito*/
+			if (s->b[0] > 7 && s->size_b > 1)
+			{
+				if (j < s->size_lis && s->a[0] == s->lis[j])
+				{
+					make_move(rr, s);
+					j++;
+				}
+				else
+					make_move(rb, s);
+			}
+		}
+	}
 }
 
 void	get_lis(t_stack *s)
@@ -62,52 +148,11 @@ void	get_lis(t_stack *s)
 	s->size_lis = lenght;
 	int k = m[lenght];
 	i = lenght - 1;
-	while (i > 0)
+	while (i > -1)
 	{
 		s->lis[i] = s->a[k];
 		k = p[k];
 		i--;
-	}
-}
-
-void	print_stack(int *arr, int size)
-{
-	int	i;
-
-	i = 0;
-	write(1, "array: ", 7);
-	while (i < size)
-	{
-		ft_putnbr_fd(arr[i], 1);
-		if (i != size - 1)
-			write(1, " ", 1);
-		i++;
-	}
-	write(1, "\nsize: ", 7);
-	ft_putnbr_fd(size, 1);
-	write(1, "\n", 1);
-}
-
-void	print_stacks(t_stack *s)
-{
-	write(1, "--- stack a ---\n", 16);
-	print_stack(s->a, s->size_a);
-	write(1, "--- stack b ---\n", 16);
-	print_stack(s->b, s->size_b);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	size_t	i;
-	char	*p;
-
-	p = s;
-	i = 0;
-	while (i < n)
-	{
-		*p = '\0';
-		p++;
-		i++;
 	}
 }
 
@@ -118,13 +163,14 @@ t_stack	*init_stacks(char **input)
 
 	i = 0;
 	ret = (t_stack *) malloc (sizeof(t_stack));
-	ft_bzero(ret, sizeof(t_stack *));
 	while (input[i] != 0)
 		i++;
 	ret->size = i;
-	ret->a = (int *) malloc (sizeof(int) * i);
-	ret->b = (int *) malloc (sizeof(int) * i);
+	ret->moves = 0;
+	ret->a = ft_alloc_bzero(i);
+	ret->b = ft_alloc_bzero(i);
 	ret->size_a = i;
+	ret->size_b = 0;
 	i = 0;
 	while (input[i] != 0)
 	{
@@ -146,7 +192,10 @@ int	main(int argc, char **argv)
 		argv++;
 	s = init_stacks(argv);
 	get_lis(s);
-	print_stack(s->lis, s->size_lis);
+	break_lis(s);
+	print_stacks(s);
+	init_move_array(s);
+	print_stack(s->move_b, s->size_b);
 	if (argc == 2)
 		free(argv);
 	return (0);
