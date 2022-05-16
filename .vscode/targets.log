@@ -1,0 +1,454 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.82.90
+# Built for i686-pc-mingw32
+# Copyright (C) 1988-2012 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Mon May 16 16:31:23 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# automatic
+?F = $(notdir $?)
+# default
+.SHELLFLAGS := -c
+# makefile (from 'Makefile', line 10)
+OBJ = $(SRC:.c=.o)
+# makefile (from 'Makefile', line 3)
+SRC = push_swap.c ft_split.c ft_atoi.c ft_putnbr_fd.c moves.c moves2.c
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# environment
+HOMEDRIVE = C:
+# automatic
+@F = $(notdir $@)
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# makefile
+CURDIR := c:/Users/giorg/Desktop/push_swap
+# default
+SHELL := sh.exe
+# makefile (from 'Makefile', line 12)
+RM = rm -f
+# environment
+WINDIR = C:\WINDOWS
+# environment
+VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"edd95fe2637dfb670c0c498374f66f34.it","_translationsConfigFile":"C:\\Users\\giorg\\AppData\\Roaming\\Code\\clp\\edd95fe2637dfb670c0c498374f66f34.it\\tcf.json","_cacheRoot":"C:\\Users\\giorg\\AppData\\Roaming\\Code\\clp\\edd95fe2637dfb670c0c498374f66f34.it","_resolvedLanguagePackCoreLocation":"C:\\Users\\giorg\\AppData\\Roaming\\Code\\clp\\edd95fe2637dfb670c0c498374f66f34.it\\da15b6fd3ef856477bf6f4fb29ba1b7af717770d","_corruptedFile":"C:\\Users\\giorg\\AppData\\Roaming\\Code\\clp\\edd95fe2637dfb670c0c498374f66f34.it\\corrupted.info","_languagePackSupport":true}
+# environment
+VBOX_MSI_INSTALL_PATH = C:\Pro 
+gram Files\Oracle\VirtualBox\
+# environment
+ONEDRIVE = C:\Users\giorg\OneDrive
+# makefile (from 'Makefile', line 14)
+HDRS = push_swap.h
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+TMP = C:\Users\giorg\AppData\Local\Temp
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PROGRAMDATA = C:\ProgramData
+# environment
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-e3e47cf2-98af-4a71-a072-67b8639d7844-sock
+# environment
+VSCODE_CWD = C:\Users\giorg\AppData\Local\Programs\Microsoft VS Code
+# environment
+PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Git\cmd;C:\Users\giorg\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;C:\Users\giorg\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\giorg\AppData\Local\GitHubDesktop\bin
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+USERPROFILE = C:\Users\giorg
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+VSCODE_LOG_STACK = false
+# environment
+NUMBER_OF_PROCESSORS = 8
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver
+# automatic
+%F = $(notdir $%)
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_19152_KECFGSDVLBYDMYWT
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+COMPUTERNAME = LAPTOP-M3PB3LD2
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERNAME = giorg
+# environment
+PUBLIC = C:\Users\Public
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\giorg\AppData\Roaming\Code\CachedData\da15b6fd3ef856477bf6f4fb29ba1b7af717770d
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# environment
+LOGONSERVER = \\LAPTOP-M3PB3LD2
+# environment
+ONEDRIVECONSUMER = C:\Users\giorg\OneDrive
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+USERDOMAIN = LAPTOP-M3PB3LD2
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# default
+MAKE_VERSION := 3.82.90
+# makefile
+.DEFAULT_GOAL := push_swap
+# makefile (from 'Makefile', line 1)
+NAME = push_swap
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# environment
+LOCALAPPDATA = C:\Users\giorg\AppData\Local
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := make.exe
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# envi 
+ronment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+# environment
+OS = Windows_NT
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\c912ec0f498f444259ad3a08b26dd277-1.67.1-main-sock
+# environment
+HOMEPATH = \Users\giorg
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+PROMPT = $P$G
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+SYSTEMROOT = C:\WINDOWS
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# automatic
++F = $(notdir $+)
+# environment
+APPDATA = C:\Users\giorg\AppData\Roaming
+# environment
+__COMPAT_LAYER = DetectorsAppHealth
+# environment
+TEMP = C:\Users\giorg\AppData\Local\Temp
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+SYSTEMDRIVE = C:
+# environment
+SESSIONNAME = Console
+# environment
+PROCESSOR_REVISION = 8e0a
+# default
+.INCLUDE_DIRS = C:/MinGW/include
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+VSCODE_PID = 19152
+# environment
+USERDOMAIN_ROAMINGPROFILE = LAPTOP-M3PB3LD2
+# variable set hash-table stats:
+# Load=97/1024=9%, Rehash=0, Collisions=15/130=12%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# C:\WINDOWS\System32\WindowsPowerShell\v1.0\ (key C:/WINDOWS/System32/WindowsPowerShell/v1.0/, mtime 1640192095): 34 files, no impossibilities.
+# . (key c:/Users/giorg/Desktop/push_swap, mtime 1652711414): 21 files, no impossibilities.
+# C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\ (key C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/iCLS/, mtime 1551232513): 8 files, no impossibilities.
+# C:\Program Files\Git\cmd (key C:/Program Files/Git/cmd, mtime 1648144491): 8 files, no impossibilities.
+# C:\WINDOWS\System32\OpenSSH\: could not be stat'd.
+# C:\MinGW\bin (key C:/MinGW/bin, mtim 
+e 1652711175): 125 files, no impossibilities.
+# C:\Program Files\Intel\Intel(R) Management Engine Components\DAL (key C:/Program Files/Intel/Intel(R) Management Engine Components/DAL, mtime 1551232503): 4 files, no impossibilities.
+# C:\WINDOWS (key C:/WINDOWS, mtime 1651480121): 144 files, no impossibilities.
+# C:\Program Files\Intel\Intel(R) Management Engine Components\IPT (key C:/Program Files/Intel/Intel(R) Management Engine Components/IPT, mtime 1551232503): 5 files, no impossibilities.
+# C:\Users\giorg\AppData\Local\Microsoft\WindowsApps (key C:/Users/giorg/AppData/Local/Microsoft/WindowsApps, mtime 1652710067): 35 files, no impossibilities.
+# C:\WINDOWS\System32\Wbem (key C:/WINDOWS/System32/Wbem, mtime 1642773244): 156 files, no impossibilities.
+# C:\Users\giorg\AppData\Local\GitHubDesktop\bin (key C:/Users/giorg/AppData/Local/GitHubDesktop/bin, mtime 1645346855): 4 files, no impossibilities.
+# C:\Users\giorg\AppData\Local\Programs\Microsoft VS Code\bin (key C:/Users/giorg/AppData/Local/Programs/Microsoft VS Code/bin, mtime 1652707994): 4 files, no impossibilities.
+# C:\Program Files\Common Files\Oracle\Java\javapath (key C:/Program Files/Common Files/Oracle/Java/javapath, mtime 1630854595): 6 files, no impossibilities.
+# C:\WINDOWS\system32 (key C:/WINDOWS/system32, mtime 1651499023): 2923 files, no impossibilities.
+# C:\Program Files (x86)\Windows Live\Shared (key C:/Program Files (x86)/Windows Live/Shared, mtime 1576716719): 23 files, no impossibilities.
+# C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\ (key C:/Program Files/Intel/Intel(R) Management Engine Components/iCLS/, mtime 1551232503): 11 files, no impossibilities.
+# C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL (key C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL, mtime 1551232513): 10 files, no impossibilities.
+# C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT (key C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT, mtime 1551232513) 
+: 6 files, no impossibilities.
+
+# 3527 files, no impossibilities in 19 directories.
+
+# Implicit Rules
+
+%.o: %.c
+#  recipe to execute (from 'Makefile', line 17):
+	gcc -Wall -Wextra -Werror -c $< -o $@
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+# Not a target:
+push_swap.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-16 15:54:42
+#  File has been updated.
+#  Successfully updated.
+
+all: push_swap
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/9=0%
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ft_split.o: ft_split.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ft_split'
+#  Last modified 2022-05-16 16:30:13
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 17):
+	gcc -Wall -Wextra -Werror -c $< -o $@
+
+# Not a target:
+ft_atoi.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-16 15:31:37
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-16 16:30:08
+#  File has been updated.
+ 
+#  Successfully updated.
+
+# Not a target:
+moves2.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-16 15:31:37
+#  File has been updated.
+#  Successfully updated.
+
+ft_putnbr_fd.o: ft_putnbr_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ft_putnbr_fd'
+#  Last modified 2022-05-16 16:30:13
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 17):
+	gcc -Wall -Wextra -Werror -c $< -o $@
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 29):
+	${RM} $(NAME) ${OBJ}
+
+moves.o: moves.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'moves'
+#  Last modified 2022-05-16 16:30:13
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 17):
+	gcc -Wall -Wextra -Werror -c $< -o $@
+
+# Not a target:
+ft_split.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-16 15:31:37
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+re: push_swap
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+ 
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 26):
+	${RM} $(OBJ)
+
+push_swap.o: push_swap.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'push_swap'
+#  Last modified 2022-05-16 16:30:13
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 17):
+	gcc -Wall -Wextra -Werror -c $< -o $@
+
+push_swap: push_swap.o ft_split.o ft_atoi.o ft_putnbr_fd.o moves.o moves2.o
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  Last modified 2022-05-16 15:31:37
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := push_swap
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := push_swap.o ft_split.o ft_atoi.o ft_putnbr_fd.o moves.o moves2.o
+# automatic
+# | := 
+# automatic
+# < := push_swap.o
+# automatic
+# ^ := push_swap.o ft_split.o ft_atoi.o ft_putnbr_fd.o moves.o moves2.o
+# automatic
+# ? := push_swap.o ft_split.o ft_atoi.o ft_putnbr_fd.o moves.o moves2.o
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=5/17=29%
+#  recipe to execute (from 'Makefile', line 20):
+	gcc $(OBJ) -o $(NAME)
+	${RM} $(OBJ)
+
+# Not a target:
+ft_putnbr_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-16 15:31:37
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+moves.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-16 15:31:37
+#  File has been updated.
+#  Successfully updated.
+
+ft_atoi.o: ft_atoi.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ft_atoi'
+#  Last modified 2022-05-16 16:30:13
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 17):
+	gcc -Wall -Wextra -Werror -c $< -o $@
+
+moves2.o: moves2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'moves2'
+#  Last modified 2022-05-16 16:30:14
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 17):
+	gcc -Wall -Wextra -Werror -c $< -o $@
+
+# fil 
+es hash-table stats:
+# Load=21/1024=2%, Rehash=0, Collisions=0/64=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 7 (4) / strings = 3491 / storage = 52039 B / avg = 14 B
+# current buf: size = 8174 B / used = 3064 B / count = 208 / avg = 14 B
+# other used: total = 43865 B / count = 3283 / avg = 13 B
+# other free: total = 69 B / max = 23 B / min = 3 B / avg = 11 B
+
+# strcache performance: lookups = 3598 / hit rate = 2%
+# hash-table stats:
+# Load=3491/8192=43%, Rehash=0, Collisions=1189/3598=33%
+# Finished Make data base on Mon May 16 16:31:23 2022
+
+ 

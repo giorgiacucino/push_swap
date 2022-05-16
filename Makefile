@@ -14,7 +14,7 @@ RM = rm -f
 HDRS = push_swap.h
 
 %.o: %.c
-	gcc -Wall -Wextra -Werror -I ${HDRS} -c $< -o $@
+	gcc -Wall -Wextra -Werror -c $< -o $@
 
 $(NAME): $(OBJ)
 	gcc $(OBJ) -o $(NAME)

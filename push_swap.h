@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include <mlx.h>
 # include <string.h>
 
 typedef struct s_stack

@@ -1,0 +1,7 @@
+make.exe --dry-run --keep-going --print-directory
+make.exe: Entering directory 'c:/Users/giorg/Desktop/push_swap'
+gcc push_swap.o ft_split.o ft_atoi.o ft_putnbr_fd.o moves.o moves2.o -o push_swap
+rm -f push_swap.o ft_split.o ft_atoi.o ft_putnbr_fd.o moves.o moves2.o
+ 
+make.exe: Leaving directory 'c:/Users/giorg/Desktop/push_swap'
+ 
