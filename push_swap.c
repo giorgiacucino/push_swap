@@ -68,18 +68,45 @@ void	make_move(void (*move)(t_stack *), t_stack *s)
 	//print_moves(s->moves);
 }
 
-void	init_move_array(t_stack *s)
+void	update_moves(t_stack *s)
 {
 	int	i;
+	int succ;
+	int	j;
 	
-	i = 0;
+	i = -1;
+	while (++i < s->size_b)
+	{
+		succ = -1;
+		j = -1;
+		while (++j < s->size_a)
+		{
+			if(s->a[j] > s->b[i])
+			{
+				succ = j;
+				break;
+			}
+		}
+		//write(1, "indice del successore: ", 23);
+		//ft_putnbr_fd(succ, 1);
+		//write(1, "\n", 1);
+		if (succ < ((s->size_a / 2) + 1))
+			s->move_a[i] = succ;
+		else
+			s->move_a[i] = succ - s->size_a;
+		if (i < ((s->size_b / 2) + 1))
+		{
+			s->move_b[i] = i;
+			s->move_b[s->size_b - i] = -i;
+		}
+	}
+}
+
+void	init_move_array(t_stack *s)
+{
 	s->move_a = ft_alloc_bzero(s->size_b);
 	s->move_b = ft_alloc_bzero(s->size_b);
-	while (++i < ((s->size_b / 2) + 1))
-	{
-		s->move_b[s->size_b - i] = -i;
-		s->move_b[i] = i;
-	}
+	update_moves(s);
 }
 
 void	break_lis(t_stack *s)
@@ -195,6 +222,10 @@ int	main(int argc, char **argv)
 	break_lis(s);
 	print_stacks(s);
 	init_move_array(s);
+	write(1, "\n", 1);
+	print_stack(s->move_a, s->size_b);
+	write(1, "\n", 1);
+	write(1, "\n", 1);
 	print_stack(s->move_b, s->size_b);
 	if (argc == 2)
 		free(argv);
