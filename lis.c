@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:34:27 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/17 18:22:29 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/17 18:35:25 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	break_lis(t_stack *s)
 	int	i;
 
 	j = 0;
-	i = s->size;
-	while (i--)
+	i = s->size - 1;
+	while (i-- > 0)
 	{
 		if (j < s->size_lis && s->a[0] == s->lis[j])
 		{

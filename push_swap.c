@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:31 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/17 18:23:01 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/17 18:49:43 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,26 +81,26 @@ int	main(int argc, char **argv)
 		argv++;
 	s = init_stacks(argv);
 	//print_moves(s->moves);
-	print_stacks(s);
+	//print_stacks(s);
 	get_lis(s);
 	//print_stack(s->lis, s->size_lis);
 	break_lis(s);
-	print_stacks(s);
+	//print_stacks(s);
 	// write(1, "\n", 1);
 	// print_moves(s->moves);
 	init_move_array(s);
 	while (s->size_a < s->size)
 	{
-		print_stacks(s);
+		//print_stacks(s);
 		//print_moves(s->moves);
 		update_moves(s);
-		print_stack(s->move_a, s->size_b);
-		print_stack(s->move_b, s->size_b);
+		//print_stack(s->move_a, s->size_b);
+		//print_stack(s->move_b, s->size_b);
 		move_to_a(s, get_best_move(s));
-		write(1, "\n", 1);
+		//write(1, "\n", 1);
 	}
 	//print_moves(s->moves);
-	print_stacks(s);
+	//print_stacks(s);
 	order(s);
 	//print_stacks(s);
 	// print_moves(s->moves);
