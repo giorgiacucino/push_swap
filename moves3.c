@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:14:17 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/17 18:50:13 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/18 17:54:16 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,38 @@ void	set_move_b(int *t, int size, int i)
 	//write(1, "indice del successore: ", 23);
 	//ft_putnbr_fd(succ, 1);
 	//write(1, "\n", 1);
+
+void	set_move_a(t_stack *s, int *tmp, int i, int *min_max)
+{
+	int	j;
+
+	j = -1;
+	// if (s->size_a == 32 && s->size_b == 9 && i == 6)
+	// {
+	// 	write(1, "\n", 1);
+	// 	//print_moves(s->a[min_max[0]]);
+	// 	//print_moves(s->a[min_max[1]]);
+	// 	print_stack(tmp, s->size_a);
+	// 	write(1, "\n", 1);
+	// }
+	if (s->b[i] > s->a[min_max[0]])
+		s->move_a[i] = tmp[(min_max[0] + 1) % s->size_a];
+	else if (s->b[i] < s->a[min_max[1]] && min_max[1] > 1)
+		s->move_a[i] = tmp[(min_max[1])];
+	else if (s->b[i] < s->a[min_max[1]])
+		s->move_a[i] = 0;
+	else
+	{
+		while (++j < s->size_a - 1)
+		{
+			if (s->a[j] < s->b[i] && s->a[j + 1] > s->b[i])
+			{
+				s->move_a[i] = tmp[j + 1];
+				break ;
+			}
+		}
+	}
+}
 */
 
 void	set_move_a(t_stack *s, int *tmp, int i, int *min_max)
@@ -67,13 +99,13 @@ void	set_move_a(t_stack *s, int *tmp, int i, int *min_max)
 	int	j;
 
 	j = -1;
-	// print_moves(s->a[min_max[0]]);
-	// print_moves(s->a[min_max[1]]);
 	if (s->b[i] > s->a[min_max[0]])
 		s->move_a[i] = tmp[(min_max[0] + 1) % s->size_a];
 	else if (s->b[i] < s->a[min_max[1]] && min_max[1] > 1)
 		s->move_a[i] = tmp[(min_max[1])];
 	else if (s->b[i] < s->a[min_max[1]])
+		s->move_a[i] = 0;
+	else if (s->b[i] > s->a[s->size_a - 1] && s->b[i] < s->a[0])
 		s->move_a[i] = 0;
 	else
 	{
@@ -111,6 +143,14 @@ void	update_moves(t_stack *s)
 		set_move_a(s, tmp, i, min_max);
 		set_move_b(s->move_b, s->size_b, i);
 	}
+	// if (s->size_a == 32 && s->size_b == 9)
+	// {
+	// 	write(1, "\n", 1);
+	// 	//print_moves(s->a[min_max[0]]);
+	// 	//print_moves(s->a[min_max[1]]);
+	// 	print_stack(s->move_a, s->size_b);
+	// 	write(1, "\n", 1);
+	// }
 }
 
 int	get_index_best_move(int *tmp, int size)

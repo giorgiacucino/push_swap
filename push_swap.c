@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:31 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/17 18:49:43 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/18 18:13:19 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int	main(int argc, char **argv)
 	else
 		argv++;
 	s = init_stacks(argv);
+	//print_stacks(s);
 	//print_moves(s->moves);
 	//print_stacks(s);
 	get_lis(s);
@@ -93,6 +94,7 @@ int	main(int argc, char **argv)
 	{
 		//print_stacks(s);
 		//print_moves(s->moves);
+		//write(1, "\n", 1);
 		update_moves(s);
 		//print_stack(s->move_a, s->size_b);
 		//print_stack(s->move_b, s->size_b);
@@ -108,3 +110,5 @@ int	main(int argc, char **argv)
 		free(argv);
 	return (0);
 }
+
+//array: 1 -4 3 14 15 13 17 -19 7 -2 -17 -18 16 8 -8 -16 -14 19 -13 -11 2 -3 -12 -5 10 6 9 11 5 18 -6 12 -20 -9 -10 -1 0 20 4 -7 -15
