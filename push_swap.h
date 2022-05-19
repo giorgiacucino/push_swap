@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:57 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/17 12:09:21 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/19 17:52:30 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	print_moves(int moves);
 void	print_stack(int *arr, int size);
 void	print_stacks(t_stack *s);
 void	print_best_move(int move);
+void	print_index(int index);
 
 //utils
 int		get_max_min(int x, int y, int flag);

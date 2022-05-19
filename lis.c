@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:34:27 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/17 18:35:25 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/19 17:56:16 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@
 void	break_lis(t_stack *s)
 {
 	int	j;
-	int	i;
 
 	j = 0;
-	i = s->size - 1;
-	while (i-- > 0)
+	while (s->size_a > s->size_lis)
 	{
 		if (j < s->size_lis && s->a[0] == s->lis[j])
 		{
@@ -94,4 +92,6 @@ void	get_lis(t_stack *s)
 		k = p[k];
 		i--;
 	}
+	free(p);
+	free(m);
 }

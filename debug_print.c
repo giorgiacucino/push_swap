@@ -6,11 +6,18 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:55:09 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/17 12:08:37 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/19 17:52:14 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_index(int index)
+{
+	write(1, "--- indice ---\n", 15);
+	ft_putnbr_fd(index, 1);
+	write(1, "\n", 1);
+}
 
 void	print_best_move(int move)
 {

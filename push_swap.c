@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:31 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/18 18:13:19 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/19 18:35:39 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ t_stack	*init_stacks(char **input)
 int	main(int argc, char **argv)
 {
 	t_stack	*s;
+	//int 	i;
 
 	if (argc < 2)
 		return (-1);
@@ -82,30 +83,72 @@ int	main(int argc, char **argv)
 	s = init_stacks(argv);
 	//print_stacks(s);
 	//print_moves(s->moves);
-	//print_stacks(s);
+	// print_stacks(s);
 	get_lis(s);
 	//print_stack(s->lis, s->size_lis);
 	break_lis(s);
 	//print_stacks(s);
 	// write(1, "\n", 1);
 	// print_moves(s->moves);
-	init_move_array(s);
+	//i = -1;
+	//while (s->size_a < s->size)
+	//{
+		// print_stacks(s);
+	// 	//print_moves(s->moves);
+		// write(1, "\n", 1);
+		// print_stacks(s);
+		//init_move_array(s);
+	// 	// if (s->size_a == 88)
+	// 	// 	print_stacks(s);
+		//update_moves(s);
+	// 	if (s->size_a >= 25 && s->size_a < 30)
+	// // 	// 	print_stacks(s);
+	// 	{
+	// 		write(1, "\n", 1);
+	// 		print_stack(s->move_a, s->size_b);
+	// 		print_stack(s->move_b, s->size_b);
+	// 		write(1, "\n", 1);
+	// 	}
+	// 	// if (s->size_a == 88)
+	// 	// {
+	// 	// 	write(1, "\n", 1);
+	// 	// 	print_stacks(s);
+	// 		// print_stack(s->move_a, s->size_b);
+	// 		// print_stack(s->move_b, s->size_b);
+	// 	// 	print_best_move(get_best_move(s));
+	// 	// 	write(1, "\n", 1);
+	// 	// }
+		//move_to_a(s, get_best_move(s));
+		// if (s->size_a >= 21 && s->size_a < 25)
+		// 	print_stack(s->a, s->size_a);
+		//free(s->move_a);
+		//free(s->move_b);
+	// 	//write(1, "\n", 1);
+	//}
 	while (s->size_a < s->size)
 	{
-		//print_stacks(s);
-		//print_moves(s->moves);
-		//write(1, "\n", 1);
+		init_move_array(s);
 		update_moves(s);
 		//print_stack(s->move_a, s->size_b);
 		//print_stack(s->move_b, s->size_b);
 		move_to_a(s, get_best_move(s));
-		//write(1, "\n", 1);
+		//print_stacks(s);
+		free(s->move_a);
+		free(s->move_b);
 	}
+	// init_move_array(s);
+	// update_moves(s);
 	//print_moves(s->moves);
 	//print_stacks(s);
 	order(s);
 	//print_stacks(s);
 	// print_moves(s->moves);
+	free(s->a);
+	free(s->b);
+	free(s->lis);
+	// free(s->move_a);
+	// free(s->move_b);
+	free(s);
 	if (argc == 2)
 		free(argv);
 	return (0);
