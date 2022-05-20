@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:14:17 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/19 18:35:49 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/20 12:17:16 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	set_move_b(int *t, int size)
 	{
 		if (i < ((size / 2) + 1))
 		{
-			t[size - i] = -i;
+			if (i != 0)
+				t[size - i] = -i;
 			t[i] = i;
 		}
 	}
@@ -188,8 +189,8 @@ void	update_moves(t_stack *s)
 	//tmp = ft_alloc_bzero(s->size_a);
 	i = -1;
 	min_max = ft_alloc_bzero(2);
-	// if (s->size_a == 88)
-	//print_stacks(s);
+	// if (s->size_a == 34)
+	// 	print_stacks(s);
 	//print_stack(tmp, s->size_a);
 	//set_move_b(tmp, s->size_a);
 	//print_stack(tmp, s->size_a);
@@ -201,6 +202,8 @@ void	update_moves(t_stack *s)
 	 	if (s->a[i] < s->a[min_max[1]])
 	 		min_max[1] = i;
 	}
+	// if (s->size_a == 34)
+	// 	print_stacks(s);
 	// i = -1;
 	// if (s->size_a == 88)
 	// {
@@ -211,7 +214,11 @@ void	update_moves(t_stack *s)
 
 
 	set_move_a(s, min_max);
+	// if (s->size_a == 34)
+	// 	print_stacks(s);
 	set_move_b(s->move_b, s->size_b);
+	// if (s->size_a == 34)
+	// 	print_stacks(s);
 	// print_stack(s->move_a, s->size_b);
 	// print_stack(s->move_b, s->size_b);
 	// if (s->size_a == 88)

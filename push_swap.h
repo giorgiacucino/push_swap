@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:57 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/19 17:52:30 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/20 11:35:51 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_stack
 	int		moves;
 	int		*move_a;
 	int		*move_b;
-	int		is_sorted;
+	long	mid;
 }				t_stack;
 
 int		ft_atoi(const char *str);
@@ -59,6 +59,8 @@ void	print_stack(int *arr, int size);
 void	print_stacks(t_stack *s);
 void	print_best_move(int move);
 void	print_index(int index);
+int		is_sorted_for_now(t_stack *s);
+void	print_num(int nbr);
 
 //utils
 int		get_max_min(int x, int y, int flag);

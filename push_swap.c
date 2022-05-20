@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:31 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/19 18:35:39 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/20 12:17:10 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,12 @@ t_stack	*init_stacks(char **input)
 	ret->b = ft_alloc_bzero(i);
 	ret->size_a = i;
 	ret->size_b = 0;
+	ret->mid = 0;
 	i = 0;
 	while (input[i] != 0)
 	{
 		ret->a[i] = ft_atoi(input[i]);
+		ret->mid += (long) ret->a[i];
 		i++;
 	}
 	return (ret);
@@ -83,7 +85,7 @@ int	main(int argc, char **argv)
 	s = init_stacks(argv);
 	//print_stacks(s);
 	//print_moves(s->moves);
-	// print_stacks(s);
+	//print_stacks(s);
 	get_lis(s);
 	//print_stack(s->lis, s->size_lis);
 	break_lis(s);
@@ -131,8 +133,19 @@ int	main(int argc, char **argv)
 		update_moves(s);
 		//print_stack(s->move_a, s->size_b);
 		//print_stack(s->move_b, s->size_b);
+		// if (s->size_a == 33 || s->size_a == 34)
+		// {
+		// 	write(1, "\nculo1", 6);
+		// 	print_stacks(s);
+		// 	fflush(stdout);
+		// }
 		move_to_a(s, get_best_move(s));
-		//print_stacks(s);
+		// if (s->size_a == 34)
+		// {
+		// 	write(1, "\nculo2", 6);
+		// 	print_stacks(s);
+		// 	fflush(stdout);
+		// }
 		free(s->move_a);
 		free(s->move_b);
 	}

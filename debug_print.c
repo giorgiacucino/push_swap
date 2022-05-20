@@ -6,11 +6,24 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:55:09 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/19 17:52:14 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/20 10:32:19 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted_for_now(t_stack *s)
+{
+	int	i;
+
+	i = -1;
+	while (++i < s->size - 1)
+	{
+		if (s->a[i] > s->a[i + 1])
+			return (0);
+	}
+	return (1);
+}
 
 void	print_index(int index)
 {
@@ -23,6 +36,13 @@ void	print_best_move(int move)
 {
 	write(1, "--- mossa da fare ---\n", 22);
 	ft_putnbr_fd(move, 1);
+	write(1, "\n", 1);
+}
+
+void	print_num(int nbr)
+{
+	write(1, "--- numero ---\n", 16);
+	ft_putnbr_fd(nbr, 1);
 	write(1, "\n", 1);
 }
 
@@ -54,6 +74,7 @@ void	print_stack(int *arr, int size)
 
 void	print_stacks(t_stack *s)
 {
+	write(1, "\n", 1);
 	write(1, "--- stack a ---\n", 16);
 	print_stack(s->a, s->size_a);
 	write(1, "--- stack b ---\n", 16);

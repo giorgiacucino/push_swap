@@ -6,13 +6,12 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:34:27 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/19 17:56:16 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/20 11:53:47 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* 7 da modificare in seguito */
+/* mio algo, mo provo quello  di mbassett */
 void	break_lis(t_stack *s)
 {
 	int	j;
@@ -28,7 +27,7 @@ void	break_lis(t_stack *s)
 		else
 		{
 			make_move(pb, s);
-			if (s->b[0] > 0 && s->size_b > 1)
+			if (s->b[0] > (s->mid / s->size) && s->size_b > 1)
 			{
 				if (j < s->size_lis && s->a[0] == s->lis[j])
 				{
@@ -41,6 +40,43 @@ void	break_lis(t_stack *s)
 		}
 	}
 }
+
+// void	break_lis(t_stack *s)
+// {
+// 	int	j;
+// 	int i;
+
+// 	j = 0;
+// 	i = 0;
+// 	while (s->size_a > s->size_lis)
+// 	{
+// 		if (j < s->size_lis && (s->a[0] == s->lis[j] || (i == 0 && s->a[0] < )))
+// 		{
+// 			make_move(ra, s);
+// 			if (j < s->size_lis && s->a[0] == s->lis[j])
+// 				j++;
+// 		}
+// 		else if (j == s->size_lis)
+// 		{
+// 			i = 1;
+// 			j = 0;
+// 		}
+// 		else
+// 		{
+// 			make_move(pb, s);
+// 			if (s->b[0] >  && s->size_b > 1)
+// 			{
+// 				if (j < s->size_lis && s->a[0] == s->lis[j])
+// 				{
+// 					make_move(rr, s);
+// 					j++;
+// 				}
+// 				else
+// 					make_move(rb, s);
+// 			}
+// 		}
+// 	}
+// }
 
 void	bin_search_lis(t_stack *s, int *p, int *m, int *lenght)
 {
