@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:11:07 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/12 15:15:05 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/20 19:10:31 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	ft_putstr(char *str, char *charset, char *matrix)
 	return (0);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char *str, char *charset, int *c)
 {
 	int		count;
 	char	**matrix;
@@ -115,6 +115,7 @@ char	**ft_split(char *str, char *charset)
 
 	offset = 0;
 	count = ft_strcount(str, charset);
+	(*c) = count;
 	matrix = (char **) malloc (sizeof(char *) * count + 1);
 	matrix[count] = 0;
 	row = 0;

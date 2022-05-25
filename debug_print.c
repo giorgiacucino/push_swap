@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:55:09 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/20 10:32:19 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/25 12:56:27 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_sorted_for_now(t_stack *s)
 	i = -1;
 	while (++i < s->size - 1)
 	{
-		if (s->a[i] > s->a[i + 1])
+		if (s->a->arr[i] > s->a->arr[i + 1])
 			return (0);
 	}
 	return (1);
@@ -76,7 +76,7 @@ void	print_stacks(t_stack *s)
 {
 	write(1, "\n", 1);
 	write(1, "--- stack a ---\n", 16);
-	print_stack(s->a, s->size_a);
+	print_stack(s->a->arr, s->a->size);
 	write(1, "--- stack b ---\n", 16);
-	print_stack(s->b, s->size_b);
+	print_stack(s->b->arr, s->b->size);
 }

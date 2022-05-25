@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:57 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/20 11:35:51 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/25 18:40:36 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,24 @@
 # include <fcntl.h>
 # include <string.h>
 
+typedef struct s_array
+{
+	int	*arr;
+	int	size;
+}				t_array;
+
 typedef struct s_stack
 {
 	int		size;
-	int		*a;
-	int		*b;
-	int		size_a;
-	int		size_b;
-	int		*lis;
-	int		size_lis;
-	int		moves;
-	int		*move_a;
-	int		*move_b;
-	long	mid;
+	t_array	*a;
+	t_array	*b;
+	t_array	*lis;
+	t_array	*move_a;
+	t_array	*move_b;
 }				t_stack;
 
-int		ft_atoi(const char *str);
-char	**ft_split(char *str, char *charset);
+int		ft_atoi(const char *str, int *ret);
+char	**ft_split(char *str, char *charset, int *c);
 void	ft_putnbr_fd(int n, int fd);
 void	sa(t_stack *s);
 void	sb(t_stack *s);
@@ -66,9 +67,14 @@ void	print_num(int nbr);
 int		get_max_min(int x, int y, int flag);
 int		is_sorted(t_stack *s);
 int		*ft_alloc_bzero(int n);
+void	ft_bzero(int* arr, int n);
 int		ft_abs(int n);
 int		ft_sign(int n);
 
 void	move_to_a(t_stack *s, int i);
+void	init_move_array(t_stack *s, int size);
+void	set_move_b(int *t, int size);
+void	rotate_until_0(t_stack *s, int dir[], int i);
+int 	num_lis(int *arr, int n);
 
 #endif

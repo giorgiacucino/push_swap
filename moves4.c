@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 11:37:00 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/19 12:27:42 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/25 18:12:50 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ void	rotate_until_0(t_stack *s, int dir[], int i)
 	while (dir[0] != 0)
 	{
 		rotate_dir(s, 0, dir[0]);
-		s->move_a[i] -= dir[0];
-		dir[0] = ft_sign(s->move_a[i]);
+		s->move_a->arr[i] -= dir[0];
+		dir[0] = ft_sign(s->move_a->arr[i]);
 	}
 	while (dir[1] != 0)
 	{
 		rotate_dir(s, 1, dir[1]);
-		s->move_b[i] -= dir[1];
-		dir[1] = ft_sign(s->move_b[i]);
+		s->move_b->arr[i] -= dir[1];
+		dir[1] = ft_sign(s->move_b->arr[i]);
 	}
 }
 
@@ -58,15 +58,15 @@ void	move_to_a(t_stack *s, int i)
 {
 	int	dir[2];
 
-	dir[0] = ft_sign(s->move_a[i]);
-	dir[1] = ft_sign(s->move_b[i]);
+	dir[0] = ft_sign(s->move_a->arr[i]);
+	dir[1] = ft_sign(s->move_b->arr[i]);
 	while (dir[0] == dir[1] && dir[0] != 0 && dir[1] != 0)
 	{
 		rotate_together(s, dir[0]);
-		s->move_a[i] -= dir[0];
-		s->move_b[i] -= dir[1];
-		dir[0] = ft_sign(s->move_a[i]);
-		dir[1] = ft_sign(s->move_b[i]);
+		s->move_a->arr[i] -= dir[0];
+		s->move_b->arr[i] -= dir[1];
+		dir[0] = ft_sign(s->move_a->arr[i]);
+		dir[1] = ft_sign(s->move_b->arr[i]);
 	}
 	rotate_until_0(s, dir, i);
 	// if (s->size_a == 87)

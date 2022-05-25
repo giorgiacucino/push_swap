@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:53:53 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/20 10:35:02 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/25 13:16:37 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ void	sa(t_stack *s)
 {
 	int	tmp;
 
-	if (s->size_a < 2)
+	if (s->a->size < 2)
 		return ;
-	tmp = s->a[0];
-	s->a[0] = s->a[1];
-	s->a[1] = tmp;
+	tmp = s->a->arr[0];
+	s->a->arr[0] = s->a->arr[1];
+	s->a->arr[1] = tmp;
 }
 
 void	sb(t_stack *s)
 {
 	int	tmp;
 
-	if (s->size_b < 2)
+	if (s->b->size < 2)
 		return ;
-	tmp = s->b[0];
-	s->b[0] = s->b[1];
-	s->b[1] = tmp;
+	tmp = s->b->arr[0];
+	s->b->arr[0] = s->b->arr[1];
+	s->b->arr[1] = tmp;
 }
 
 void	ss(t_stack *s)
@@ -45,24 +45,24 @@ void	pb(t_stack *s)
 	int	i;
 	int	tmp;
 
-	if (s->size_a == 0)
+	if (s->a->size == 0)
 		return ;
 	i = 0;
-	tmp = s->a[0];
-	while (i < s->size_a)
+	tmp = s->a->arr[0];
+	while (i < s->a->size)
 	{
-		s->a[i] = s->a[i + 1];
+		s->a->arr[i] = s->a->arr[i + 1];
 		i++;
 	}
-	i = s->size_b;
+	i = s->b->size;
 	while (i > 0)
 	{
-		s->b[i] = s->b[i - 1];
+		s->b->arr[i] = s->b->arr[i - 1];
 		i--;
 	}
-	s->b[0] = tmp;
-	s->size_a--;
-	s->size_b++;
+	s->b->arr[0] = tmp;
+	s->a->size--;
+	s->b->size++;
 }
 
 void	pa(t_stack *s)
@@ -70,26 +70,26 @@ void	pa(t_stack *s)
 	int	i;
 	int	tmp;
 
-	if (s->size_b == 0)
+	if (s->b->size == 0)
 		return ;
 	i = 0;
-	tmp = s->b[0];
+	tmp = s->b->arr[0];
 	// if (s->size_a == 34 || s->size_a == 35)
 	// {
 	// 	print_num(tmp);
 	// }
-	while (i < s->size_b)
+	while (i < s->b->size)
 	{
-		s->b[i] = s->b[i + 1];
+		s->b->arr[i] = s->b->arr[i + 1];
 		i++;
 	}
-	i = s->size_a;
+	i = s->a->size;
 	while (i > 0)
 	{
-		s->a[i] = s->a[i - 1];
+		s->a->arr[i] = s->a->arr[i - 1];
 		i--;
 	}
-	s->a[0] = tmp;
-	s->size_b--;
-	s->size_a++;
+	s->a->arr[0] = tmp;
+	s->b->size--;
+	s->a->size++;
 }

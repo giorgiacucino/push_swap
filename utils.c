@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 10:20:00 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/20 10:13:35 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/25 14:48:21 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,28 @@ int	*ft_alloc_bzero(int n)
 	return (ret);
 }
 
+void	ft_bzero(int* arr, int n)
+{
+	int	i;
+	
+	if (!arr)
+		return ;
+	i = -1;
+	while (++i < n)
+		arr[i] = 0;
+	return ;
+}
+
 int	is_sorted(t_stack *s)
 {
 	int	i;
 
-	if (s->size_a < s->size)
+	if (s->a->size < s->size)
 		return (0);
 	i = -1;
 	while (++i < s->size - 1)
 	{
-		if (s->a[i] > s->a[i + 1])
+		if (s->a->arr[i] > s->a->arr[i + 1])
 			return (0);
 	}
 	return (1);

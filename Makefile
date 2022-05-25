@@ -9,6 +9,7 @@ SRC = push_swap.c \
 	moves3.c \
 	moves4.c \
 	lis.c \
+	lis2.c \
 	debug_print.c \
 	utils.c 
 

@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:14:17 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/20 12:17:16 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/25 14:21:50 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	rrr(t_stack *s)
 void	make_move(void (*move)(t_stack *), t_stack *s)
 {
 	move(s);
-	s->moves++;
 	if ((*move) == ra)
 		write(1, "ra\n", 3);
 	else if ((*move) == rb)
@@ -154,26 +153,26 @@ void	set_move_a(t_stack *s, int *min_max)
 	int	j;
 
 	i = -1;
-	while (++i < s->size_b)
+	while (++i < s->b->size)
 	{
 		j = -1;
-		if (s->b[i] > s->a[min_max[0]])
-			s->move_a[i] = get_id(s->size_a, min_max[0] + 1);
-		else if (s->b[i] < s->a[min_max[1]])
-			s->move_a[i] = get_id(s->size_a, min_max[1]);
+		if (s->b->arr[i] > s->a->arr[min_max[0]])
+			s->move_a->arr[i] = get_id(s->a->size, min_max[0] + 1);
+		else if (s->b->arr[i] < s->a->arr[min_max[1]])
+			s->move_a->arr[i] = get_id(s->a->size, min_max[1]);
 		else
 		{
-			while (++j < s->size_a)
+			while (++j < s->a->size)
 			{
-				if (s->a[j] < s->b[i] && s->b[i] < s->a[j + 1])
+				if (s->a->arr[j] < s->b->arr[i] && s->b->arr[i] < s->a->arr[j + 1])
 				{
-					s->move_a[i] = get_id(s->size_a, j + 1);
+					s->move_a->arr[i] = get_id(s->a->size, j + 1);
 					// printf("%d, %d, %d, %d\n", s->a[j], s->b[i], s->a[j + 1], s->move_a[i]);
 					break ;
 				}
 			}
-			if (j == s->size_a)
-				s->move_a[i] = 0;
+			if (j == s->a->size)
+				s->move_a->arr[i] = 0;
 		}
 		// if (j == s->size_a - 1)
 		// 	printf("%d, %d, %d fuori\n", s->a[s->size_a - 1], s->b[i], s->a[0]);
@@ -195,11 +194,11 @@ void	update_moves(t_stack *s)
 	//set_move_b(tmp, s->size_a);
 	//print_stack(tmp, s->size_a);
 	//print_stack(tmp, s->size_a);
-	while (++i < s->size_a)
+	while (++i < s->a->size)
 	{
-	 	if (s->a[i] > s->a[min_max[0]])
+	 	if (s->a->arr[i] > s->a->arr[min_max[0]])
 	 		min_max[0] = i;
-	 	if (s->a[i] < s->a[min_max[1]])
+	 	if (s->a->arr[i] < s->a->arr[min_max[1]])
 	 		min_max[1] = i;
 	}
 	// if (s->size_a == 34)
@@ -216,7 +215,7 @@ void	update_moves(t_stack *s)
 	set_move_a(s, min_max);
 	// if (s->size_a == 34)
 	// 	print_stacks(s);
-	set_move_b(s->move_b, s->size_b);
+	set_move_b(s->move_b->arr, s->b->size);
 	// if (s->size_a == 34)
 	// 	print_stacks(s);
 	// print_stack(s->move_a, s->size_b);
@@ -264,17 +263,17 @@ int	get_best_move(t_stack *s)
 	int	*tmp;
 
 	i = -1;
-	tmp = ft_alloc_bzero(s->size_b);
-	while (++i < s->size_b)
+	tmp = ft_alloc_bzero(s->b->size);
+	while (++i < s->b->size)
 	{
-		if (s->move_a[i] >= 0 && s->move_b[i] >= 0)
-			tmp[i] = get_max_min(s->move_a[i], s->move_b[i], 1);
-		else if (s->move_a[i] < 0 && s->move_b[i] < 0)
-			tmp[i] = ft_abs(get_max_min(s->move_a[i], s->move_b[i], 0));
+		if (s->move_a->arr[i] >= 0 && s->move_b->arr[i] >= 0)
+			tmp[i] = get_max_min(s->move_a->arr[i], s->move_b->arr[i], 1);
+		else if (s->move_a->arr[i] < 0 && s->move_b->arr[i] < 0)
+			tmp[i] = ft_abs(get_max_min(s->move_a->arr[i], s->move_b->arr[i], 0));
 		else
-			tmp[i] = ft_abs(s->move_a[i]) + ft_abs(s->move_b[i]);
+			tmp[i] = ft_abs(s->move_a->arr[i]) + ft_abs(s->move_b->arr[i]);
 	}
-	i = get_index_best_move(tmp, s->size_b);
+	i = get_index_best_move(tmp, s->b->size);
 	free(tmp);
 	return (i);
 }
