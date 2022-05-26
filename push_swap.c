@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:31 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/25 19:01:14 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/26 18:57:26 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,19 @@
 void	make_simple_moves(t_stack *s)
 {
 	int	best;
-	best = num_lis(s->a->arr, s->a->size);
+
+	if (is_sorted_not_rotated(s) == 1)
+		return ;
+	get_lis(s);
+	//print_stack(s->lis->arr, s->lis->size);
+	best = s->lis->size;
 	sa(s);
-	if (num_lis(s->a->arr, s->a->size) > best)
-	{
+	free_array(s->lis);
+	get_lis(s);
+	if (s->lis->size > best || is_sorted_not_rotated(s) == 1)
 		make_move(sa, s);
-		best = num_lis(s->a->arr, s->a->size);
-	}
+	free_array(s->lis);
 	sa(s);
-	ra(s);
-	if (num_lis(s->a->arr, s->a->size) > best)
-	{
-		make_move(ra, s);
-		best = num_lis(s->a->arr, s->a->size);
-	}
-	ra(s);
-	rra(s);
-	if (num_lis(s->a->arr, s->a->size) > best)
-	{
-		make_move(rra, s);
-		best = num_lis(s->a->arr, s->a->size);
-	}
-	rra(s);
 }
 
 void	free_array(t_array *a)
@@ -111,17 +102,19 @@ t_stack	*init_stacks(char **input, int size)
 	i = 0;
 	while (input[i] != 0)
 	{
-		if (ft_atoi(input[i], &ret->a->arr[i]) == 0)
+		if (ft_atoi(input[i], &ret->a->arr[i]) == 0 || ft_isin(ret->a->arr[i], ret->a->arr, i) == 1)
 			break ;
 		i++;
 	}
 	if (i < size)
 	{
 		free_stack(ret);
+		write(2, "Error\n", 6);
 		return (NULL);
 	}
 	return (ret);
 }
+//&& ft_isin(ret->a->arr[i], ret->a->arr, i + 1) == 0
 
 int	main(int argc, char **argv)
 {
@@ -140,87 +133,26 @@ int	main(int argc, char **argv)
 	s = init_stacks(argv, i);
 	if (s == NULL)
 		return (-1);
-	//print_stacks(s);
-	//print_moves(s->moves);
 	make_simple_moves(s);
-	//print_stacks(s);
-	// if (is_sorted(s) == 1)
-	// 	return (0);
-	get_lis(s);
-	//print_stack(s->lis->arr, s->lis->size);
-	break_lis(s);
-	//print_stacks(s);
-	// write(1, "\n", 1);
-	// print_moves(s->moves);
-	//i = -1;
-	while (s->a->size < s->size)
+	if (is_sorted_not_rotated(s) == 0)
 	{
-		// print_stacks(s);
-	// 	//print_moves(s->moves);
-		// write(1, "\n", 1);
-		// print_stacks(s);
-		init_move_array(s, s->b->size);
-	// 	// if (s->size_a == 88)
-	// 	// 	print_stacks(s);
-		update_moves(s);
-	// 	if (s->size_a >= 25 && s->size_a < 30)
-	// // 	// 	print_stacks(s);
-	// 	{
-	// 		write(1, "\n", 1);
-	// 		print_stack(s->move_a, s->size_b);
-	// 		print_stack(s->move_b, s->size_b);
-	// 		write(1, "\n", 1);
-	// 	}
-	// 	// if (s->size_a == 88)
-	// 	// {
-	// 	// 	write(1, "\n", 1);
-	// 	// 	print_stacks(s);
-	// 		// print_stack(s->move_a, s->size_b);
-	// 		// print_stack(s->move_b, s->size_b);
-	// 	// 	print_best_move(get_best_move(s));
-	// 	// 	write(1, "\n", 1);
-	// 	// }
-		move_to_a(s, get_best_move(s));
-		// if (s->size_a >= 21 && s->size_a < 25)
-		// 	print_stack(s->a, s->size_a);
-		free_array(s->move_a);
-		free_array(s->move_b);
-	// 	//write(1, "\n", 1);
+		get_lis(s);
+		//print_stack(s->lis->arr, s->lis->size);
+		break_lis(s);
+		while (s->a->size < s->size)
+		{
+			init_move_array(s, s->b->size);
+			update_moves(s);
+			move_to_a(s, get_best_move(s));
+			free_array(s->move_a);
+			free_array(s->move_b);
+		}
+		free_array(s->lis);
 	}
-	//while (s->size_a < s->size)
-	//{
-	//	init_move_array(s);
-	//	update_moves(s);
-		//print_stack(s->move_a, s->size_b);
-		//print_stack(s->move_b, s->size_b);
-		// if (s->size_a == 33 || s->size_a == 34)
-		// {
-		// 	write(1, "\nculo1", 6);
-		// 	print_stacks(s);
-		// 	fflush(stdout);
-		// }
-		//move_to_a(s, get_best_move(s));
-		// if (s->size_a == 34)
-		// {
-		// 	write(1, "\nculo2", 6);
-		// 	print_stacks(s);
-		// 	fflush(stdout);
-		// }
-		//free(s->move_a);
-		//free(s->move_b);
-	//}
-	// init_move_array(s);
-	// update_moves(s);
-	//print_moves(s->moves);
-	//print_stacks(s);
 	order(s);
-	//print_stacks(s);
-	// print_moves(s->moves);
+	//print_stack(s->a->arr, s->a->size);
 	free_array(s->a);
 	free_array(s->b);
-	free_array(s->lis);
-	// free(s->move_a);
-	// free(s->move_b);
 	free(s);
 	if (argc == 2)
 		free(argv);

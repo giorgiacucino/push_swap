@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:57 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/25 18:40:36 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/26 18:40:01 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,8 @@ void	init_move_array(t_stack *s, int size);
 void	set_move_b(int *t, int size);
 void	rotate_until_0(t_stack *s, int dir[], int i);
 int 	num_lis(int *arr, int n);
-
+void	order(t_stack *s);
+int		is_sorted_not_rotated(t_stack *s);
+void	free_array(t_array *a);
+int		ft_isin(int n, int *arr, int size);
 #endif

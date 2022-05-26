@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 10:20:00 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/25 14:48:21 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/05/26 18:49:48 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,37 @@ int	is_sorted(t_stack *s)
 		return (0);
 	i = -1;
 	while (++i < s->size - 1)
+	{
+		if (s->a->arr[i] > s->a->arr[i + 1])
+			return (0);
+	}
+	return (1);
+}
+
+int	is_sorted_not_rotated(t_stack *s)
+{
+	int	i;
+	int	min;
+
+	if (s->a->size < s->size)
+		return (0);
+	i = 0;
+	min = 0;
+	while (++i < s->size)
+	{
+		if (s->a->arr[i] < s->a->arr[min])
+			min = i;
+	}
+	i = min;
+	while (++i < s->size - 1)
+	{
+		if (s->a->arr[i] > s->a->arr[i + 1])
+			return (0);
+	}
+	if (min > 0 && s->a->arr[s->size - 1] > s->a->arr[0])
+		return (0);
+	i = -1;
+	while (++i < min - 1)
 	{
 		if (s->a->arr[i] > s->a->arr[i + 1])
 			return (0);
