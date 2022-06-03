@@ -6,11 +6,20 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:49:14 by gcucino           #+#    #+#             */
-/*   Updated: 2022/06/03 12:58:00 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/03 16:52:29 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	write_result(t_stack *s)
+{
+	if (is_sorted(s) == 1)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	free_stack(s);
+}
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -78,9 +87,6 @@ int	main(int argc, char **argv)
 			break ;
 		instr = get_next_line(0);
 	}
-	if (is_sorted(s) == 1)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
+	write_result_and_free(s);
 	return (0);
 }

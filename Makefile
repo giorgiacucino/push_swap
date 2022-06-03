@@ -1,5 +1,5 @@
 NAME = push_swap
-BNAME = my_checker
+BNAME = checker
 
 SRC = push_swap.c \
 	init_stacks.c \
@@ -11,10 +11,12 @@ SRC = push_swap.c \
 	moves2.c \
 	moves3.c \
 	moves4.c \
+	moves_utils.c \
 	lis.c \
 	lis2.c \
 	debug_print.c \
-	utils.c 
+	utils.c \
+	utils_sort.c
 
 BSRC =	get_next_line.c \
 	get_next_line_utils.c \
@@ -28,10 +30,12 @@ BSRC =	get_next_line.c \
 	moves2.c \
 	moves3.c \
 	moves4.c \
+	moves_utils.c \
 	lis.c \
 	lis2.c \
 	debug_print.c \
-	utils.c 
+	utils.c \
+	utils_sort.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -54,10 +58,10 @@ bonus: $(BOBJ)
 all: $(NAME)
 
 clean:
-	${RM} $(OBJ)
+	${RM} $(OBJ) $(BOBJ)
 
 fclean: clean
-	${RM} $(NAME) ${OBJ} ${BOBJ}
+	${RM} $(NAME) $(BNAME) ${OBJ} ${BOBJ}
 
 re: $(NAME)
 

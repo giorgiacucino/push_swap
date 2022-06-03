@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 10:20:00 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/26 18:49:48 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/03 17:40:50 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,64 +42,6 @@ int	*ft_alloc_bzero(int n)
 	while (++i < n)
 		ret[i] = 0;
 	return (ret);
-}
-
-void	ft_bzero(int* arr, int n)
-{
-	int	i;
-	
-	if (!arr)
-		return ;
-	i = -1;
-	while (++i < n)
-		arr[i] = 0;
-	return ;
-}
-
-int	is_sorted(t_stack *s)
-{
-	int	i;
-
-	if (s->a->size < s->size)
-		return (0);
-	i = -1;
-	while (++i < s->size - 1)
-	{
-		if (s->a->arr[i] > s->a->arr[i + 1])
-			return (0);
-	}
-	return (1);
-}
-
-int	is_sorted_not_rotated(t_stack *s)
-{
-	int	i;
-	int	min;
-
-	if (s->a->size < s->size)
-		return (0);
-	i = 0;
-	min = 0;
-	while (++i < s->size)
-	{
-		if (s->a->arr[i] < s->a->arr[min])
-			min = i;
-	}
-	i = min;
-	while (++i < s->size - 1)
-	{
-		if (s->a->arr[i] > s->a->arr[i + 1])
-			return (0);
-	}
-	if (min > 0 && s->a->arr[s->size - 1] > s->a->arr[0])
-		return (0);
-	i = -1;
-	while (++i < min - 1)
-	{
-		if (s->a->arr[i] > s->a->arr[i + 1])
-			return (0);
-	}
-	return (1);
 }
 
 int	get_max_min(int x, int y, int flag)

@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 11:37:00 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/25 18:12:50 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/03 16:33:12 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,6 @@ void	move_to_a(t_stack *s, int i)
 		dir[1] = ft_sign(s->move_b->arr[i]);
 	}
 	rotate_until_0(s, dir, i);
-	// if (s->size_a == 87)
-	// 	print_stacks(s);
 	if (dir[0] == 0 && dir[1] == 0)
-	{
 		make_move(pa, s);
-		// if (s->size_a == 87)
-		// 	print_stacks(s);
-	}
 }

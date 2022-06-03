@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:36:29 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/26 18:58:05 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/03 16:28:01 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	parse_sign(const char *str, int *i)
 {
-	int ret;
+	int	ret;
 
 	ret = 1;
 	if (str[*i] == '-' || str[*i] == '+')
@@ -36,7 +36,7 @@ int	ft_atoi(const char *str, int *ret)
 	tmp = 0;
 	sign = parse_sign(str, &i);
 	while (str[i] != 0)
-	{ 
+	{
 		if (str[i] >= '0' && str[i] <= '9' && i < 12)
 		{
 			tmp += str[i] - 48;
@@ -50,6 +50,6 @@ int	ft_atoi(const char *str, int *ret)
 	tmp *= sign;
 	if (tmp < -2147483648 || tmp > 2147483647)
 		return (0);
-	(*ret) = (int) tmp; 
+	(*ret) = (int) tmp;
 	return (1);
 }

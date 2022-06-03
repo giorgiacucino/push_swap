@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:57 by gcucino           #+#    #+#             */
-/*   Updated: 2022/06/03 13:12:58 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/03 16:51:30 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_stack
 #  define BUFFER_SIZE 10
 # endif
 
-
 char	*get_buf(int fd);
 char	*get_next_line(int fd);
 int		ft_strbuf(char **buf, int fd);
@@ -68,6 +67,7 @@ void	make_move(void (*move)(t_stack *), t_stack *s);
 void	update_moves(t_stack *s);
 int		get_best_move(t_stack *s);
 t_stack	*init_stacks(char **input, int size);
+void	free_stack(t_stack *s);
 void	make_simple_moves(t_stack *s);
 
 //debug
@@ -76,14 +76,12 @@ void	print_stack(int *arr, int size);
 void	print_stacks(t_stack *s);
 void	print_best_move(int move);
 void	print_index(int index);
-int		is_sorted_for_now(t_stack *s);
 void	print_num(int nbr);
 
 //utils
 int		get_max_min(int x, int y, int flag);
 int		is_sorted(t_stack *s);
 int		*ft_alloc_bzero(int n);
-void	ft_bzero(int *arr, int n);
 int		ft_abs(int n);
 int		ft_sign(int n);
 
@@ -91,9 +89,12 @@ void	move_to_a(t_stack *s, int i);
 void	init_move_array(t_stack *s, int size);
 void	set_move_b(int *t, int size);
 void	rotate_until_0(t_stack *s, int dir[], int i);
-int		num_lis(int*arr, int n);
+void	bin_search_lis(t_array *s, int *p, int *m, int *lenght);
 void	order(t_stack *s);
 int		is_sorted_not_rotated(t_stack *s);
 void	free_array(t_array *a);
 int		ft_isin(int n, int *arr, int size);
+int		get_best_move(t_stack *s);
+int		get_id(int size, int id);
+int		get_index_best_move(int *tmp, int size);
 #endif

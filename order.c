@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:09:31 by gcucino           #+#    #+#             */
-/*   Updated: 2022/06/03 13:10:41 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/03 16:34:11 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,31 @@ void	order(t_stack *s)
 			i++;
 		}
 	}
+}
+
+void	make_move(void (*move)(t_stack *), t_stack *s)
+{
+	move(s);
+	if ((*move) == ra)
+		write(1, "ra\n", 3);
+	else if ((*move) == rb)
+		write(1, "rb\n", 3);
+	else if ((*move) == pa)
+		write(1, "pa\n", 3);
+	else if ((*move) == pb)
+		write(1, "pb\n", 3);
+	else if ((*move) == sa)
+		write(1, "sa\n", 3);
+	else if ((*move) == sb)
+		write(1, "sb\n", 3);
+	else if ((*move) == rra)
+		write(1, "rra\n", 4);
+	else if ((*move) == rrb)
+		write(1, "rrb\n", 4);
+	else if ((*move) == rr)
+		write(1, "rr\n", 3);
+	else if ((*move) == rrr)
+		write(1, "rrr\n", 4);
 }
 
 void	make_simple_moves(t_stack *s)

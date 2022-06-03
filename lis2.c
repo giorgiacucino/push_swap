@@ -6,49 +6,50 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 18:38:30 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/25 18:40:17 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/03 16:25:51 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int _lis(int *arr, int n, int* max_ref)
+int	ft_isin(int n, int *arr, int size)
 {
-	/* Base case */
-	if (n == 1)
-		return 1;
+	int	i;
 
-	// 'max_ending_here' is length of LIS ending with arr[n-1]
-	int res, max_ending_here = 1;
-
-	/* Recursively get all LIS ending with arr[0], arr[1] ...
-	arr[n-2]. If arr[i-1] is smaller than arr[n-1], and
-	max ending with arr[n-1] needs to be updated, then
-	update it */
-	for (int i = 1; i < n; i++) {
-		res = _lis(arr, i, max_ref);
-		if (arr[i - 1] < arr[n - 1] && res + 1 > max_ending_here)
-			max_ending_here = res + 1;
+	i = 0;
+	while (i < size)
+	{
+		if (arr[i] == n)
+			return (1);
+		i++;
 	}
-
-	// Compare max_ending_here with the overall max. And
-	// update the overall max if needed
-	if (*max_ref < max_ending_here)
-		*max_ref = max_ending_here;
-
-	// Return length of LIS ending with arr[n-1]
-	return max_ending_here;
+	return (0);
 }
 
-// The wrapper function for _lis()
-int num_lis(int *arr, int n)
+void	bin_search_lis(t_array *s, int *p, int *m, int *lenght)
 {
-	// The max variable holds the result
-	int max = 1;
+	int	lo;
+	int	hi;
+	int	i;
+	int	mid;
 
-	// The function _lis() stores its result in max
-	_lis(arr, n, &max);
-
-	// returns max
-	return max;
+	i = 0;
+	while (i < s->size)
+	{
+		lo = 1;
+		hi = (*lenght) + 1;
+		while (lo < hi)
+		{
+			mid = lo + ((hi - lo) / 2);
+			if (s->arr[m[mid]] < s->arr[i])
+				lo = mid + 1;
+			else
+				hi = mid;
+		}
+		p[i] = m[lo - 1];
+		m[lo] = i;
+		if (lo > (*lenght))
+			(*lenght) = lo;
+		i++;
+	}
 }

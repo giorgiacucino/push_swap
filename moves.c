@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:53:53 by gcucino           #+#    #+#             */
-/*   Updated: 2022/05/25 13:16:37 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/03 16:28:23 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,6 @@ void	pa(t_stack *s)
 		return ;
 	i = 0;
 	tmp = s->b->arr[0];
-	// if (s->size_a == 34 || s->size_a == 35)
-	// {
-	// 	print_num(tmp);
-	// }
 	while (i < s->b->size)
 	{
 		s->b->arr[i] = s->b->arr[i + 1];
