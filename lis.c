@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:34:27 by gcucino           #+#    #+#             */
-/*   Updated: 2022/06/03 16:27:36 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/04 12:45:19 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	better_breaker(t_stack *s, int *j)
 	}
 }
 
-/* mio algo, mo provo quello  di mbassett */
 void	break_lis(t_stack *s)
 {
 	int	j;

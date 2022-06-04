@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:04:22 by gcucino           #+#    #+#             */
-/*   Updated: 2022/06/03 16:27:21 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/04 11:20:03 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	free_array(t_array *a)
 void	free_stack(t_stack *s)
 {
 	if (s->a != NULL)
-		free(s->a);
+		free_array(s->a);
 	if (s->b != NULL)
-		free(s->b);
+		free_array(s->b);
 	if (s->lis != NULL)
-		free(s->lis);
+		free_array(s->lis);
 	if (s != NULL)
 		free(s);
 }

@@ -50,10 +50,11 @@ HDRS = push_swap.h
 
 $(NAME): $(OBJ)
 	gcc $(OBJ) -o $(NAME)
-	${RM} $(OBJ)
 
-bonus: $(BOBJ)
+$(BNAME): $(BOBJ)
 	gcc $(BOBJ) -o $(BNAME)
+
+bonus: $(BNAME)
 
 all: $(NAME)
 
@@ -63,6 +64,6 @@ clean:
 fclean: clean
 	${RM} $(NAME) $(BNAME) ${OBJ} ${BOBJ}
 
-re: $(NAME)
+re: fclean $(NAME)
 
 .PHONY: all clean fclean re

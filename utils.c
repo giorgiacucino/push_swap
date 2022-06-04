@@ -6,11 +6,21 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 10:20:00 by gcucino           #+#    #+#             */
-/*   Updated: 2022/06/03 17:40:50 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/04 11:27:06 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_matrix(char **m, int size)
+{
+	int	i;
+
+	i = -1;
+	while (i++ < size)
+		free(m[i]);
+	free(m);
+}
 
 int	ft_sign(int n)
 {

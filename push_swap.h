@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:57 by gcucino           #+#    #+#             */
-/*   Updated: 2022/06/03 16:51:30 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/04 11:35:25 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int		is_sorted(t_stack *s);
 int		*ft_alloc_bzero(int n);
 int		ft_abs(int n);
 int		ft_sign(int n);
+void	free_matrix(char **m, int size);
 
 void	move_to_a(t_stack *s, int i);
 void	init_move_array(t_stack *s, int size);

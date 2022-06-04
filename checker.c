@@ -6,13 +6,30 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:49:14 by gcucino           #+#    #+#             */
-/*   Updated: 2022/06/03 16:52:29 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/04 12:32:43 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	write_result(t_stack *s)
+t_stack	*elaborate_input(int argc, char **argv, int *i)
+{
+	t_stack	*s;
+
+	if (argc == 2)
+		argv = ft_split(argv[1], " ", i);
+	else
+	{
+		argv++;
+		(*i) = argc - 1;
+	}
+	s = init_stacks(argv, *i);
+	if (argc == 2)
+		free_matrix(argv, *i);
+	return (s);
+}
+
+void	write_result_and_free(t_stack *s)
 {
 	if (is_sorted(s) == 1)
 		write(1, "OK\n", 3);
@@ -70,14 +87,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (-1);
-	if (argc == 2)
-		argv = ft_split(argv[1], " ", &i);
-	else
-	{
-		argv++;
-		i = argc - 1;
-	}
-	s = init_stacks(argv, i);
+	s = elaborate_input(argc, argv, &i);
 	if (s == NULL)
 		return (-1);
 	instr = get_next_line(0);
@@ -85,6 +95,7 @@ int	main(int argc, char **argv)
 	{
 		if (elaborate_instruction(s, instr) == 0)
 			break ;
+		free(instr);
 		instr = get_next_line(0);
 	}
 	write_result_and_free(s);

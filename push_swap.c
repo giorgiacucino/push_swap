@@ -6,7 +6,7 @@
 /*   By: gcucino <gcucino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:44:31 by gcucino           #+#    #+#             */
-/*   Updated: 2022/06/03 16:23:35 by gcucino          ###   ########.fr       */
+/*   Updated: 2022/06/04 11:36:49 by gcucino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	main(int argc, char **argv)
 		i = argc - 1;
 	}
 	s = init_stacks(argv, i);
+	if (argc == 2)
+		free_matrix(argv, i);
 	if (s == NULL)
 		return (-1);
 	make_simple_moves(s);
@@ -54,7 +56,5 @@ int	main(int argc, char **argv)
 	free_array(s->a);
 	free_array(s->b);
 	free(s);
-	if (argc == 2)
-		free(argv);
 	return (0);
 }
